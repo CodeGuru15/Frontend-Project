@@ -33,7 +33,7 @@ const Signup = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <div className="w-[80%] max-w-md p-6 bg-white rounded-lg shadow-md shadow-slate-300">
+      <div className="w-[80%] max-w-md p-6 bg-white rounded-lg shadow-md shadow-slate-400">
         <h1 className="mb-2 text-xl font-bold text-center md:mb-6 md:text-3xl sm:text-base">
           Sign Up
         </h1>
@@ -50,7 +50,7 @@ const Signup = () => {
               onChange={formik.handleChange}
               className="px-4 py-2 border rounded-md"
             />
-            <p className="text-xs text-red-500 h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
               {formik.errors.name && formik.touched.name
                 ? formik.errors.name
                 : null}
@@ -66,7 +66,7 @@ const Signup = () => {
               onChange={formik.handleChange}
               className="px-4 py-2 border rounded-md"
             />
-            <p className="text-xs text-red-500 h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
               {formik.errors.email && formik.touched.email
                 ? formik.errors.email
                 : null}
@@ -83,7 +83,7 @@ const Signup = () => {
               onChange={formik.handleChange}
               className="px-4 py-2 border rounded-md"
             />
-            <p className="text-xs text-red-500 h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
               {formik.errors.password && formik.touched.password
                 ? formik.errors.password
                 : null}
@@ -101,7 +101,7 @@ const Signup = () => {
               onChange={formik.handleChange}
               className="px-4 py-2 border rounded-md"
             />
-            <p className="text-xs text-red-500 h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
               {formik.values.password != formik.values.confirmPassword &&
               formik.values.confirmPassword &&
               formik.touched.confirmPassword

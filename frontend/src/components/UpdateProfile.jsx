@@ -11,7 +11,7 @@ const initialValues = {
 
 const profileSchema = Yup.object().shape({
   name: Yup.string()
-    .required("Please enter your name")
+    .required("Please enter your username")
     .min(2, "Name must be at least 2 characters")
     .max(15, "Max 15 characters allowed"),
   email: Yup.string().required("Please enter your email"),

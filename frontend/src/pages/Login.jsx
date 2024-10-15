@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as Yup from "Yup";
+import { FcGoogle } from "react-icons/fc";
+import { FaFacebookSquare } from "react-icons/fa";
 
 const initialValues = {
   user: "",
@@ -29,7 +31,10 @@ const Login = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <div className="w-[80%] max-w-md p-6 bg-white rounded-lg shadow-md shadow-slate-300">
+      <h1 className="text-2xl font-bold text-center text-purple-900 ">
+        Welcome to Destion Innovations{" "}
+      </h1>
+      <div className="w-[80%] max-w-md p-6 bg-white rounded-lg shadow-md shadow-slate-400">
         <h1 className="mb-4 text-2xl font-bold text-center md:mb-6 md:text-3xl">
           Login
         </h1>
@@ -46,7 +51,7 @@ const Login = () => {
               className="px-4 py-2 border rounded-md"
               onChange={formik.handleChange}
             />
-            <p className="text-xs text-red-500 h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
               {formik.errors.user && formik.touched.user
                 ? formik.errors.user
                 : null}
@@ -64,7 +69,7 @@ const Login = () => {
               className="px-4 py-2 border rounded-md"
               onChange={formik.handleChange}
             />
-            <p className="text-xs text-red-500 h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
               {formik.errors.password && formik.touched.password
                 ? formik.errors.password
                 : null}
@@ -85,7 +90,24 @@ const Login = () => {
             Login
           </button>
         </form>
-        <p className="mt-4 text-xs text-center sm:text-base">
+        <div className="p-3 text-xs text-center text-slate-600">
+          Or login with
+        </div>
+        <div className="flex flex-col place-items-center sm:justify-around sm:flex-row">
+          <button className="flex items-center justify-center gap-2 px-4 py-2 duration-500 rounded-sm shadow-sm hover:scale-110 shadow-slate-600">
+            <span className="text-xl md:text-2xl">
+              <FcGoogle />
+            </span>
+            <span className="text-xs md:text-base">Google</span>
+          </button>
+          <button className="flex items-center justify-center gap-2 px-4 py-2 duration-500 rounded-sm shadow-sm hover:scale-110 shadow-slate-600">
+            <span className="text-xl text-blue-800 md:text-2xl">
+              <FaFacebookSquare />
+            </span>
+            <span className="text-xs md:text-base">Facebook</span>
+          </button>
+        </div>
+        <p className="py-4 text-xs text-center sm:text-base">
           Don't have an account?{" "}
           <Link to="/signup" className="text-blue-500 hover:underline">
             Sign Up

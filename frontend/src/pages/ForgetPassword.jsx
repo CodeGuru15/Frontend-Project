@@ -37,9 +37,9 @@ const ForgotPassword = () => {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+      <div className="w-[80%] max-w-md p-6 bg-white rounded-lg shadow-md shadow-slate-400">
         <h1 className="mb-6 text-xl font-bold text-center md:text-3xl">
-          New Password
+          Change Password
         </h1>
         <form className="space-y-4" onSubmit={formik.handleSubmit}>
           <div className="flex flex-col">
@@ -54,7 +54,7 @@ const ForgotPassword = () => {
               className="px-4 py-2 border rounded-md"
               onChange={formik.handleChange}
             />
-            <p className="text-xs text-red-500 h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
               {formik.errors.user && formik.touched.user
                 ? formik.errors.user
                 : null}
@@ -72,7 +72,7 @@ const ForgotPassword = () => {
               className="px-4 py-2 border rounded-md"
               onChange={formik.handleChange}
             />
-            <p className="text-xs text-red-500 h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
               {formik.errors.password && formik.touched.password
                 ? formik.errors.password
                 : null}
@@ -90,7 +90,7 @@ const ForgotPassword = () => {
               className="px-4 py-2 border rounded-md"
               onChange={formik.handleChange}
             />
-            <p className="text-xs text-red-500 h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
               {error ? "Confirmed password not matched" : null}
             </p>
           </div>

@@ -108,6 +108,7 @@ const Dashboard = () => {
           </button>
           <h2 className="font-bold md:text-2xl text-slate-800">App Name</h2>
           <div className="flex items-center gap-1">
+            <span>User</span>
             <button className="mr-2 text-xl text-blue-500 md:text-2xl hover:text-blue-800">
               <CgProfile />
             </button>
