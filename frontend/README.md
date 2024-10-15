@@ -6,6 +6,7 @@ This project aims to create a user-friendly and responsive login, signup, and da
 
 **Project Structure**
 
+```
 project-directory
 ├── public
 ├── src
@@ -26,6 +27,7 @@ project-directory
 │ └── main.jsx
 ├── README.md
 ├── index.html
+```
 
 **Installation**
 
