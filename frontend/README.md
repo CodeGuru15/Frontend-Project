@@ -34,6 +34,8 @@ project-directory
 1. Clone the repository
 2. Install dependencies: Navigate to the project directory and run "npm install"
 3. Start the developement server with 'npm run dev'
+4. Login, SignUp and Forgot Password pages are inter-linked. Only the dashboard page can be accessible with 'http://localhost:port/dashboard'.
+
 
 **Design Approach**
 
