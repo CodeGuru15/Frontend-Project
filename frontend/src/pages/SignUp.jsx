@@ -1,86 +1,122 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
+import * as Yup from "Yup";
+import { useFormik } from "formik";
+
+const initialValues = {
+  name: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
+const signUpSchema = Yup.object().shape({
+  name: Yup.string()
+    .required("Please enter your name")
+    .min(2, "Name must be at least 2 characters")
+    .max(15, "Max 15 characters allowed"),
+  email: Yup.string().required("Please enter your email"),
+  password: Yup.string()
+    .required("Please enter the password")
+    .min(8, "Password must be at least 8 characters"),
+  confirmPassword: Yup.string().required("Please enter the password again"),
+});
 
 const Signup = () => {
-  const [user, setUser] = useState({});
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  const handleChange = (e) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setUser((values) => ({ ...values, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Implement form validation here
-    if (user.password !== confirmPassword) {
-      alert("Passwords do not match.");
-      return;
-    } else {
-      // Handle successful signup
-      setUser({});
+  const formik = useFormik({
+    initialValues,
+    validationSchema: signUpSchema,
+    onSubmit: (values) => {
       setConfirmPassword("");
-      console.log(user);
-    }
-  };
+      console.log("Form values", values);
+    },
+  });
 
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
-        <h1 className="text-3xl font-bold text-center mb-6">Sign Up</h1>
-        <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="w-[80%] max-w-md p-6 bg-white rounded-lg shadow-md shadow-slate-300">
+        <h1 className="mb-2 text-xl font-bold text-center md:mb-6 md:text-3xl sm:text-base">
+          Sign Up
+        </h1>
+        <form onSubmit={formik.handleSubmit} className="space-y-1 md:space-y-4">
           <div className="flex flex-col">
-            <label className="text-gray-700">Username</label>
+            <label className="text-xs text-gray-700 sm:text-base">
+              Username
+            </label>
             <input
               type="text"
               name="name"
-              value={user.name || ""}
-              onChange={handleChange}
-              required={true}
-              className="border rounded-md px-4 py-2"
+              id="name"
+              value={formik.values.name}
+              onChange={formik.handleChange}
+              className="px-4 py-2 border rounded-md"
             />
+            <p className="text-xs text-red-500 h-7 sm:text-base">
+              {formik.errors.name && formik.touched.name
+                ? formik.errors.name
+                : null}
+            </p>
           </div>
           <div className="flex flex-col">
-            <label className="text-gray-700">Email</label>
+            <label className="text-xs text-gray-700 sm:text-base">Email</label>
             <input
               type="email"
               name="email"
-              value={user.email || ""}
-              onChange={handleChange}
-              required={true}
-              className="border rounded-md px-4 py-2"
+              id="email"
+              value={formik.values.email}
+              onChange={formik.handleChange}
+              className="px-4 py-2 border rounded-md"
             />
+            <p className="text-xs text-red-500 h-7 sm:text-base">
+              {formik.errors.email && formik.touched.email
+                ? formik.errors.email
+                : null}
+            </p>
           </div>
           <div className="flex flex-col">
-            <label className="text-gray-700">Password</label>
+            <label className="text-xs text-gray-700 sm:text-base">
+              Password
+            </label>
             <input
               type="password"
               name="password"
-              value={user.password || ""}
-              onChange={handleChange}
-              required={true}
-              className="border rounded-md px-4 py-2"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              className="px-4 py-2 border rounded-md"
             />
+            <p className="text-xs text-red-500 h-7 sm:text-base">
+              {formik.errors.password && formik.touched.password
+                ? formik.errors.password
+                : null}
+            </p>
           </div>
           <div className="flex flex-col">
-            <label className="text-gray-700">Confirm Password</label>
+            <label className="text-xs text-gray-700 sm:text-base">
+              Confirm Password
+            </label>
             <input
               type="password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required={true}
-              className="border rounded-md px-4 py-2"
+              name="confirmPassword"
+              id="confirmPassword"
+              value={formik.confirmPassword}
+              onChange={formik.handleChange}
+              className="px-4 py-2 border rounded-md"
             />
+            <p className="text-xs text-red-500 h-7 sm:text-base">
+              {formik.values.password != formik.values.confirmPassword &&
+              formik.values.confirmPassword &&
+              formik.touched.confirmPassword
+                ? "Confirmed password does not matched"
+                : null}
+            </p>
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white font-bold py-2 rounded-md hover:bg-blue-600"
+            className="w-full py-2 text-xs font-bold text-white bg-blue-500 rounded-md sm:text-base hover:bg-blue-600"
           >
             Sign Up
           </button>
         </form>
-        <p className="text-center mt-4">
+        <p className="mt-4 text-xs text-center sm:text-base">
           Already have an account?{" "}
           <Link to="/" className="text-blue-500 hover:underline">
             Login
