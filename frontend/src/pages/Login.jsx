@@ -51,7 +51,7 @@ const Login = () => {
               className="px-4 py-2 border rounded-md"
               onChange={formik.handleChange}
             />
-            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 sm:h-7 sm:text-base">
               {formik.errors.user && formik.touched.user
                 ? formik.errors.user
                 : null}
@@ -69,7 +69,7 @@ const Login = () => {
               className="px-4 py-2 border rounded-md"
               onChange={formik.handleChange}
             />
-            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 sm:h-7 sm:text-base">
               {formik.errors.password && formik.touched.password
                 ? formik.errors.password
                 : null}

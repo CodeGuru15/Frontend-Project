@@ -50,7 +50,7 @@ const Signup = () => {
               onChange={formik.handleChange}
               className="px-4 py-2 border rounded-md"
             />
-            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 sm:h-7 sm:text-base">
               {formik.errors.name && formik.touched.name
                 ? formik.errors.name
                 : null}
@@ -66,7 +66,7 @@ const Signup = () => {
               onChange={formik.handleChange}
               className="px-4 py-2 border rounded-md"
             />
-            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 sm:h-7 sm:text-base">
               {formik.errors.email && formik.touched.email
                 ? formik.errors.email
                 : null}
@@ -83,7 +83,7 @@ const Signup = () => {
               onChange={formik.handleChange}
               className="px-4 py-2 border rounded-md"
             />
-            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 sm:h-7 sm:text-base">
               {formik.errors.password && formik.touched.password
                 ? formik.errors.password
                 : null}
@@ -101,7 +101,7 @@ const Signup = () => {
               onChange={formik.handleChange}
               className="px-4 py-2 border rounded-md"
             />
-            <p className="h-4 text-xs text-red-500 md:h-7 sm:text-base">
+            <p className="h-4 text-xs text-red-500 sm:h-7 sm:text-base">
               {formik.values.password != formik.values.confirmPassword &&
               formik.values.confirmPassword &&
               formik.touched.confirmPassword
